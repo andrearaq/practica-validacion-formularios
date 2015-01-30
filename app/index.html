@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- tarea validacion formularios - modificada por Andrea Gutierrez -->
 <html class="no-js">
   <head>
     <meta charset="utf-8">
@@ -16,12 +17,156 @@
     <!-- endbuild -->
   </head>
   <body>
-
+<!--
     <div class="hero-unit">
       <h1>Práctica validación formularios</h1>
-      <p>Aquí debería ir el enlace a <a href="https://github.com/juanda99/practica-validacion-formularios">tu respositorio en GitHub</a>, donde estará la versión de desarrollo.</p>
-    </div>
+      <p>Enlace a <a href="https://github.com/andrearaq/practica-validacion-formularios">mi repositorio en GitHub</a>, donde está la versión de desarrollo.</p>
+    </div>-->
+    <div class="wrapper">
+        <header class="header">
+          <div class="head">
+            <span><h1>Práctica Validación de Formularios</h1></span><span><a href="https://github.com/andrearaq/practica-validacion-formularios"><h3>Repositorio en GitHub</h3></a></span>
+          </div>
+        </header><!-- .header-->
+        
 
+        <main class="contacto">
+
+            <form action="." method="POST">
+
+                <fieldset>
+                    <h2>Información de Contacto</h2>
+                    <div>
+                        <label for="nombre">Nombre
+                            <span classs="important">*</span>
+                        </label>
+                        <input type="text" id="nombre" name="nombre"/>
+                    </div>
+                    <div>
+                        <label for="apellidos">Apellidos
+                            <span classs="important">*</span>
+                        </label>
+                        <input type="text" id="apellidos" name="apellidos"/>
+                    </div>
+                    <div>
+                        <label for="telefono">Teléfono
+                            <span classs="important">*</span>
+                        </label>
+                        <input type="tel" id="telefono" name="telefono"/>
+                    </div>
+                    <div>
+                        <label for="email">E-mail
+                            <span classs="important">*</span>
+                        </label>
+                        <input type="email" id="email" name="email"/>
+                    </div>
+                    <div>
+                        <label for="remail">Repetir E-mail</label>
+                        <input type="email" id="remail" name="remail"/>
+                    </div>  
+                    <div>
+                        <label>¿Cómo nos has conocido?</label>
+                        <select>
+                          <option value="pnc">Prefiero no contestar</option>
+                          <option value="pub">Publicidad</option>
+                          <option value="pds">Profesionales del sector</option>
+                          <option value="internet">Internet</option>
+                          <option value="ada">A través de un amigo o conocido</option>
+                        </select> 
+                    </div>
+                </fieldset>
+                <br/>
+                <fieldset>
+                    <h2>Datos de facturación</h2>
+                    <div>
+                        <label for="demandante">Demandante
+                             <span classs="important">*</span>
+                        </label>
+                        <label class="dem">Particular</label>
+                        <input type="radio" name="demandante" value="particular" checked/>
+                        <label class="dem">Empresa</label>
+                        <input type="radio" name="demandante" value="empresa"/>
+                    </div>
+                    <div>
+                        <label for="cif">CIF/NIF
+                            <span classs="important">*</span>
+                        </label>
+                        <input type="text" id="cif" name="cif"/>
+                    </div>  
+                    <div>
+                        <label for="nom_dem">Nombre/Empresa
+                            <span classs="important">*</span>
+                        </label>
+                        <input type="text" id="nom_dem" name="nom_dem"/>
+                    </div> 
+                    <div>
+                        <label for="direccion">Dirección
+                            <span classs="important">*</span>
+                        </label>
+                        <input type="text" id="direccion" name="direccion"/>
+                    </div> 
+                    <div>
+                        <label for="cp">CP
+                            <span classs="important">*</span>
+                        </label>
+                        <input type="digit" id="cp" name="cp"/>
+                    </div> 
+                    <div>
+                        <label for="localidad">Localidad
+                            <span classs="important">*</span>
+                        </label>
+                        <input type="text" id="localidad" name="localidad"/>
+                    </div> 
+                    <div>
+                        <label for="provincia">Provincia
+                            <span classs="important">*</span>
+                        </label>
+                        <input type="text" id="provincia" name="provincia"/>
+                    </div> 
+                    <div>
+                        <label for="pais">País
+                            <span classs="important">*</span>
+                        </label>
+                        <input type="text" id="pais" name="pais"/>
+                    </div> 
+                    <div>
+                        <label for="iban">Código IBAN
+                            <span classs="important">*</span>
+                        </label>
+                        <input type="digit" id="iban" name="iban"/>
+                    </div>  
+                    <div>
+                        <label for="pago">Forma de pago
+                             <span classs="important">*</span>
+                        </label>
+                        <label>Mensual</label>
+                        <input type="radio" name="pago" value="mensual" checked/>
+                        <label>Trimestral</label>
+                        <input type="radio" name="pago" value="trimestral"/>
+                        <label>Anual</label>
+                        <input type="radio" name="pago" value="anual"/>
+                    </div>
+
+                </fieldset>
+                <br/>
+                <fieldset>
+                    <h2>Datos de acceso</h2>
+                    <label for="usuario">Usuario</label>
+                    <input type="text" id="usuario"/><br/>
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" /><br/>
+                    <label for="rpassword">Repetir Contraseña</label>
+                    <input type="password" id="rpassword" /><br/>
+                    <input type="submit" value="Enviar">
+                </fieldset>
+                
+            </form>
+
+        </main> <!-- end contacto -->
+        <footer class="footer">
+          <h5>@ Andrea Gutiérrez Muñoz - Desarrollo Aplicaciones Web - 2015</h5>
+      </footer><!-- .footer --> 
+    </div> <!-- end wrapper -->
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
