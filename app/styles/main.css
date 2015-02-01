@@ -54,7 +54,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
 /* Campo del mensaje */
 .contacto label {
   padding: 10px;
-  width:200px;
+  width:155px;
+  
+  /*display: block;*/
+  float: left;
+  xmargin-right: 1%;
+ 
 }
 .important{
     color:red;
@@ -93,7 +98,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
   border: none;
 }
 .contacto fieldset input[type="radio"]{
-  display:inline;
+  
 }
 
 .dem label {
