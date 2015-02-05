@@ -44,6 +44,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
 }
 /* Estilos de los campos */
 .contacto input {
+
   width: 70%;
   max-width: 70%;
   margin-bottom: 8px;
@@ -53,6 +54,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
 }
 /* Campo del mensaje */
 .contacto label {
+  float: left;
   padding: 10px;
   width:155px;
   
@@ -97,9 +99,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
   color: #ccc;
   border: none;
 }
-.contacto fieldset input[type="radio"]{
-  
-}
 
 .dem label {
   padding: 5px;
@@ -109,4 +108,18 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
   clear: both;
   height: 30px;
   text-align: center;
+}
+
+.radioCheck label{
+  display:block;
+ /* margin-bottom:.3em;*/
+  font-weight:normal;
+}
+.radioCheck label input{
+  margin-top:0;
+  display:inline;
+  width:auto;
+  border:0;
+  padding:0;
+ /* position:static;*/
 }

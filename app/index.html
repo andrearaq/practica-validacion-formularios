@@ -33,7 +33,7 @@
 
         <main class="contacto">
 
-            <form action="." method="POST">
+            <form action="." method="POST" id="miFormu">
 
                 <fieldset>
                     <h2>Información de Contacto</h2>
@@ -80,14 +80,18 @@
                 <fieldset>
                     <h2>Datos de facturación</h2>
                     <div>
-                        <label for="demandante">Demandante
-                             <span classs="important">*</span>
+                        <label>Demandante
+                            <span classs="important">*</span>
                         </label>
-                        <label class="dem">Particular</label>
-                        <input type="radio" name="demandante" value="particular" checked/>
-                        <label class="dem">Empresa</label>
-                        <input type="radio" name="demandante" value="empresa"/>
+                         <div class="radioCheck">
+                            <label for="dem1">
+                              <input type="radio" name="title" value="particular" id="dem1" checked/>Particular</label>
+                            <label for="dem2">
+                              <input type="radio" name="title" value="empresa" id="dem2" />Empresa</label>
+                         </div>
+                         <p></p>
                     </div>
+
                     <div>
                         <label for="cif">CIF/NIF
                             <span classs="important">*</span>
@@ -140,12 +144,14 @@
                         <label for="pago">Forma de pago
                              <span classs="important">*</span>
                         </label>
-                        <label>Mensual</label>
-                        <input type="radio" name="pago" value="mensual" checked/>
-                        <label>Trimestral</label>
-                        <input type="radio" name="pago" value="trimestral"/>
-                        <label>Anual</label>
-                        <input type="radio" name="pago" value="anual"/>
+                        <div class="radioCheck">
+                            <label>
+                                <input type="radio" name="pago" value="mensual" checked/>Mensual</label>
+                            <label>
+                                <input type="radio" name="pago" value="trimestral"/>Trimestral</label>
+                            <label>
+                                <input type="radio" name="pago" value="anual"/>Anual</label>
+                        </div>
                     </div>
 
                 </fieldset>
@@ -160,7 +166,8 @@
                     <input type="password" id="rpassword" /><br/>
                     <input type="submit" value="Enviar">
                 </fieldset>
-                
+                <br/>
+                <p>* Los campos con asterisco son obligatorios</p>
             </form>
 
         </main> <!-- end contacto -->
@@ -172,7 +179,7 @@
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    d<script src="bower_components/jquery-validate/dist/jquery.validate.js"></script>
+    <script src="bower_components/jquery-validate/dist/jquery.validate.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
