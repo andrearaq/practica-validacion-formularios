@@ -22,8 +22,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
 -----------------------------------------------------------------------------*/
 .header {
   height: 50px;
-  clear: both;
-  display: block;
+  /*clear: both;
+  display: block;*/
+}
+.head {
+  margin-top: 15px;
 }
 
 /* Contenedor principal */
@@ -63,6 +66,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
   xmargin-right: 1%;
  
 }
+.contacto select {
+  height: 35px;
+  margin-left: 10px;
+  box-shadow:inset 1px 1px 5px 1px #808080;
+}
+
 .important{
     color:red;
     font-weight:bold;
@@ -122,4 +131,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
   border:0;
   padding:0;
  /* position:static;*/
+}
+
+#tit1 {
+  font-size: 26px;
+  font-weight: bold;
+}
+#tit2 {
+  font-size:18px;
+  margin-left: 160px;
+}
+#separar {
+  clear: both;
 }

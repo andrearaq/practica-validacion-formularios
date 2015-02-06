@@ -8,7 +8,10 @@ $("#miFormu").validate({
             required: true
         },
         telefono: {
-            required: true
+            required: true,
+            digits: true;
+            minlength: 9,
+            maxlength: 9
         },
         email: {
             required: true
@@ -29,7 +32,10 @@ $("#miFormu").validate({
             required: true
         },
         cp: {
-            required: true
+            required: true,
+            digits: true,
+            minlength: 4,
+            maxlength: 5
         },
         localidad: {
             required: true
@@ -44,7 +50,8 @@ $("#miFormu").validate({
             required: true
         },
         usuario: {
-            required: true
+            required: true,
+            minlength: 4
         },
         password: {
             required: true

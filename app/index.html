@@ -26,7 +26,7 @@
     <div class="wrapper">
         <header class="header">
           <div class="head">
-            <span><h1>Práctica Validación de Formularios</h1></span><span><a href="https://github.com/andrearaq/practica-validacion-formularios"><h3>Repositorio en GitHub</h3></a></span>
+            <span id="tit1">Práctica Validación de Formularios</span> <span id="tit2"><a href="https://github.com/andrearaq/practica-validacion-formularios" target="_blank">Repositorio en GitHub</a></span>
           </div>
         </header><!-- .header-->
         
@@ -92,14 +92,14 @@
                          <p></p>
                     </div>
 
-                    <div>
-                        <label for="cif">CIF/NIF
+                    <div id="separar">
+                        <label for="cif">NIF
                             <span classs="important">*</span>
                         </label>
                         <input type="text" id="cif" name="cif"/>
                     </div>  
                     <div>
-                        <label for="nom_dem">Nombre/Empresa
+                        <label for="nom_dem">Nombre
                             <span classs="important">*</span>
                         </label>
                         <input type="text" id="nom_dem" name="nom_dem"/>
@@ -159,7 +159,7 @@
                 <fieldset>
                     <h2>Datos de acceso</h2>
                     <label for="usuario">Usuario</label>
-                    <input type="text" id="usuario"/><br/>
+                    <input type="text" id="usuario" disabled/><br/>
                     <label for="password">Contraseña</label>
                     <input type="password" id="password" /><br/>
                     <label for="rpassword">Repetir Contraseña</label>
