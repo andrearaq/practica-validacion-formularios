@@ -33,7 +33,7 @@
 
         <main class="contacto">
 
-            <form action="." method="POST" id="miFormu">
+            <form  method="POST" id="miFormu" novalidate>
 
                 <fieldset>
                     <h2>Información de Contacto</h2>
@@ -67,7 +67,7 @@
                     </div>  
                     <div>
                         <label>¿Cómo nos has conocido?</label>
-                        <select>
+                        <select name="conocido" id="conocido">
                           <option value="pnc">Prefiero no contestar</option>
                           <option value="pub">Publicidad</option>
                           <option value="pds">Profesionales del sector</option>
@@ -93,16 +93,16 @@
                     </div>
 
                     <div id="separar">
-                        <label for="cif">NIF
+                        <label for="nif_cif">NIF
                             <span classs="important">*</span>
                         </label>
-                        <input type="text" id="cif" name="cif"/>
+                        <input type="text" id="nif_cif" name="nif_cif"/>
                     </div>  
                     <div>
-                        <label for="nom_dem">Nombre
+                        <label for="nom_fact">Nombre
                             <span classs="important">*</span>
                         </label>
-                        <input type="text" id="nom_dem" name="nom_dem"/>
+                        <input type="text" id="nom_fact" name="nom_fact" disabled/>
                     </div> 
                     <div>
                         <label for="direccion">Dirección
@@ -159,11 +159,11 @@
                 <fieldset>
                     <h2>Datos de acceso</h2>
                     <label for="usuario">Usuario</label>
-                    <input type="text" id="usuario" disabled/><br/>
+                    <input type="text" id="usuario" name="usuario" disabled/><br/>
                     <label for="password">Contraseña</label>
-                    <input type="password" id="password" /><br/>
+                    <input type="password" id="password" name="password"/><br/>
                     <label for="rpassword">Repetir Contraseña</label>
-                    <input type="password" id="rpassword" /><br/>
+                    <input type="password" id="rpassword" name ="rpassword"/><br/>
                     <input type="submit" value="Enviar">
                 </fieldset>
                 <br/>
@@ -185,6 +185,7 @@
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="scripts/main.js"></script>
+        <script src="scripts/messajes_es.js"></script>
         <!-- endbuild -->
 </body>
 </html>

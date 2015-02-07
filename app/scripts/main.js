@@ -1,4 +1,3 @@
-console.log('\'Allo \'Allo!');
 $("#miFormu").validate({
     rules: {
         nombre: {
@@ -9,23 +8,24 @@ $("#miFormu").validate({
         },
         telefono: {
             required: true,
-            digits: true;
+            digits: true,
             minlength: 9,
             maxlength: 9
         },
         email: {
+            required: true,
+            minlength: 4
+        },
+        remail: {
+        	equalTo: email
+        },
+        title: {
             required: true
         },
-        dem1: {
+        nif_cif: {
             required: true
         },
-        dem2: {
-            required: true
-        },
-        cif: {
-            required: true
-        },
-        nom_dem: {
+        nom_fact: {
             required: true
         },
         direccion: {
@@ -34,8 +34,7 @@ $("#miFormu").validate({
         cp: {
             required: true,
             digits: true,
-            minlength: 4,
-            maxlength: 5
+            rangelength: [4, 5]
         },
         localidad: {
             required: true
@@ -47,7 +46,10 @@ $("#miFormu").validate({
             required: true
         },
         iban: {
-            required: true
+            required: true,
+            iban: true,
+            minlength: 24,
+            maxlength: 24
         },
         usuario: {
             required: true,
@@ -55,7 +57,28 @@ $("#miFormu").validate({
         },
         password: {
             required: true
+        },
+        rpassword: {
+        	equalTo: password
+        },
+        messages: {
+            nif_cif: {
+                remote: "Este NIF ya esta en uso."
+            },
+            email: {
+                remote: "Este correo ya esta en uso."
+            },
+            iban: {
+        		iban: "Introduzca un IBAN correcto (Para España 24 caracteres y empezando por ES)."
+      		}
+        },
+        errorPlacement: function( error, element ) {
+			error.insertAfter( element.parent() );
+		},
+		submitHandler: function() {
+            alert("¡Envíado!");
         }
-    });
+    }
+});
 
 

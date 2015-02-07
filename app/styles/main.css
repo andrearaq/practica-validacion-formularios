@@ -13,8 +13,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
 }
 
 .wrapper {
-  min-width: 800px;
-  max-width: 800px;
+  min-width: 725px;
+  max-width: 725px;
   margin: 0 auto;
 /*  background-color: white;*/
 }
@@ -22,8 +22,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
 -----------------------------------------------------------------------------*/
 .header {
   height: 50px;
-  /*clear: both;
-  display: block;*/
 }
 .head {
   margin-top: 15px;
@@ -48,9 +46,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
 /* Estilos de los campos */
 .contacto input {
 
-  width: 70%;
+  width: 65%;
   max-width: 70%;
-  margin-bottom: 8px;
+  height: 18px;
+  margin-bottom: 15px;
   margin-left: 10px;
   box-shadow:inset 1px 1px 5px 1px #808080;
   display: inline;
@@ -67,7 +66,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
  
 }
 .contacto select {
-  height: 35px;
+  height: 30px;
   margin-left: 10px;
   box-shadow:inset 1px 1px 5px 1px #808080;
 }
@@ -99,6 +98,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
   font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
   text-decoration: none;
   vertical-align: middle;
+  margin-right: 20px;
   margin-bottom: 10px;
   float: right;
 }
@@ -127,10 +127,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
 .radioCheck label input{
   margin-top:0;
   display:inline;
-  width:auto;
+  width: auto;
   border:0;
   padding:0;
- /* position:static;*/
+  position:static;
 }
 
 #tit1 {
@@ -139,7 +139,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
 }
 #tit2 {
   font-size:18px;
-  margin-left: 160px;
+  margin-left: 80px;
 }
 #separar {
   clear: both;
