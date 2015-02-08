@@ -1,11 +1,13 @@
+// primero limpiamos el formulario por si hay campos con algun texto
+$('#miFormu').each (function(){
+  this.reset();
+});
+
+// validacion del formulario
 $("#miFormu").validate({
     rules: {
-        nombre: {
-            required: true
-        },
-        apellidos: {
-            required: true
-        },
+        nombre: "required",
+        apellidos: "required",
         telefono: {
             required: true,
             digits: true,
@@ -19,32 +21,20 @@ $("#miFormu").validate({
         remail: {
         	equalTo: email
         },
-        title: {
-            required: true
-        },
+        title: "required",
         nif_cif: {
             required: true
         },
-        nom_fact: {
-            required: true
-        },
-        direccion: {
-            required: true
-        },
+        nom_fact: "required",
+        direccion: "required",
         cp: {
             required: true,
             digits: true,
             rangelength: [4, 5]
         },
-        localidad: {
-            required: true
-        },
-        provincia: {
-            required: true
-        },
-        pais: {
-            required: true
-        },
+        localidad: "required",
+        provincia: "required",
+        pais: "required",
         iban: {
             required: true,
             iban: true,
@@ -55,9 +45,7 @@ $("#miFormu").validate({
             required: true,
             minlength: 4
         },
-        password: {
-            required: true
-        },
+        password: "required",
         rpassword: {
         	equalTo: password
         },
@@ -70,11 +58,17 @@ $("#miFormu").validate({
             },
             iban: {
         		iban: "Introduzca un IBAN correcto (Para España 24 caracteres y empezando por ES)."
+      		},
+      		cp: {
+      			rangelength: "Introduce un codigo de 4 o 5 digitos."
+      		},
+      		remail: {
+      			equalTo: "Introduce el mismo email."
       		}
         },
-        errorPlacement: function( error, element ) {
+     /*   errorPlacement: function( error, element ) {
 			error.insertAfter( element.parent() );
-		},
+		},*/
 		submitHandler: function() {
             alert("¡Envíado!");
         }

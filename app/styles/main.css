@@ -49,21 +49,31 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
   width: 65%;
   max-width: 70%;
   height: 18px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   margin-left: 10px;
   box-shadow:inset 1px 1px 5px 1px #808080;
   display: inline;
 }
+
+.contacto input.error {
+  background-color: #F5A9A9;
+}
+
 /* Campo del mensaje */
 .contacto label {
   float: left;
   padding: 10px;
   width:155px;
-  
-  /*display: block;*/
-  float: left;
   xmargin-right: 1%;
  
+}
+.contacto label.error {
+  
+  color: #B40404;
+  width: 100%;
+  font-weight: normal;
+  margin-left: 180px;
+  margin-top: -30px;
 }
 .contacto select {
   height: 30px;
@@ -121,7 +131,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
 
 .radioCheck label{
   display:block;
- /* margin-bottom:.3em;*/
   font-weight:normal;
 }
 .radioCheck label input{
