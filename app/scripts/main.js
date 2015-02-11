@@ -74,5 +74,11 @@ $("#miFormu").validate({
         }
     }
 });
+// comprobación de la complejidad del password
+$("#password").focusin(function () {
+            $("#password").complexify({}, function (valid, complexity) {
+                $("#barraComp").attr("value",complexity);
+                            });
+        });
 
 

@@ -164,7 +164,11 @@
                     <input type="password" id="password" name="password"/><br/>
                     <label for="rpassword">Repetir Contraseña</label>
                     <input type="password" id="rpassword" name ="rpassword"/><br/>
-                    <input type="submit" value="Enviar">
+                    <label  for="barraComp">Complejidad contraseña
+                        <meter value="0" id="barraComp" min="0" max="40"></meter>
+                    </label>
+                    <input type="reset"  value="Limpiar"/>
+                    <input type="submit" value="Enviar"/>
                 </fieldset>
                 <br/>
                 <p>* Los campos con asterisco son obligatorios</p>
@@ -180,12 +184,14 @@
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/jquery-validate/dist/jquery.validate.js"></script>
+
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="scripts/main.js"></script>
         <script src="scripts/messages_es.js"></script>
+        <script src="scripts/jquery.complexify.js"></script>
         <!-- endbuild -->
 </body>
 </html>
