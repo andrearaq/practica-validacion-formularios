@@ -1,3 +1,4 @@
+'use strict';
 // primero limpiamos el formulario por si hay campos con algun texto
 $('#miFormu').each (function(){
   this.reset();
@@ -32,9 +33,9 @@ $("#miFormu").validate({
             digits: true,
             rangelength: [4, 5]
         },
-        localidad: "required",
-        provincia: "required",
-        pais: "required",
+        localidad: 'required',
+        provincia: 'required',
+        pais: 'required',
         iban: {
             required: true,
             iban: true,
@@ -45,7 +46,10 @@ $("#miFormu").validate({
             required: true,
             minlength: 4
         },
-        password: "required",
+        password: {
+            required: true,
+            minlength: 8
+        },
         rpassword: {
         	equalTo: password
         },
@@ -64,21 +68,36 @@ $("#miFormu").validate({
       		},
       		remail: {
       			equalTo: "Introduce el mismo email."
-      		}
+      		},
+            password: {
+                minlength: "Contraseña: mínimo 8 caracteres."
+            },
+            rpassword: "Introduce la misma contraseña."
+            
         },
-     /*   errorPlacement: function( error, element ) {
-			error.insertAfter( element.parent() );
-		},*/
-		submitHandler: function() {
-            alert("¡Envíado!");
+     	submitHandler: function() {
+            alert("¡Enviado!");
         }
     }
 });
+
 // comprobación de la complejidad del password
 $("#password").focusin(function () {
-            $("#password").complexify({}, function (valid, complexity) {
-                $("#barraComp").attr("value",complexity);
-                            });
-        });
+    $("#password").complexify({}, function (valid, complexity) {
+        $("#barraComp").attr("value",complexity);
+    });
+});
+
+// rellenar el usuario con el email
+$("#email").focusout(function() {
+    var email=$("#email").val();
+    $("#usuario").val(email);
+});
+
+// rellenar nombre con el nombre y los apellidos
+$("#apellidos").focusout(function() {
+    var nomape=$("#nombre").val()+" "+$("#apellidos").val();
+    $("#nom_fact").val(nomape);
+});
 
 

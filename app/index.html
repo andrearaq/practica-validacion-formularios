@@ -158,22 +158,32 @@
                 <br/>
                 <fieldset>
                     <h2>Datos de acceso</h2>
-                    <label for="usuario">Usuario</label>
-                    <input type="text" id="usuario" name="usuario" disabled/><br/>
-                    <label for="password">Contraseña</label>
-                    <input type="password" id="password" name="password"/><br/>
-                    <label for="rpassword">Repetir Contraseña</label>
-                    <input type="password" id="rpassword" name ="rpassword"/><br/>
-                    <label  for="barraComp">Complejidad contraseña
-                        <meter value="0" id="barraComp" min="0" max="40"></meter>
-                    </label>
-                    <input type="reset"  value="Limpiar"/>
+                    <div>
+                        <label for="usuario">Usuario
+                            <span classs="important">*</span></label>
+                        <input type="text" id="usuario" name="usuario" disabled/><br/>
+                    </div>
+                    <div>
+                        <label for="password">Contraseña
+                            <span classs="important">*</span></label>
+                        <input type="password" id="password" name="password"/><br/>
+                    </div>
+                    <div>
+                       <!-- <label  for="barraComp">Complejidad contraseña</label>-->
+                        <meter value="0" id="barraComp" min="0" max="40" optimum="30" low="10" high="22"></meter>
+
+                    </div>
+                    <div>
+                        <label for="rpassword">Repetir Contraseña</label>
+                        <input type="password" id="rpassword" name ="rpassword"/><br/>
+                    </div>
+                    <input type="reset"  onclick="window.location.reload()" value="Limpiar"/>
                     <input type="submit" value="Enviar"/>
                 </fieldset>
                 <br/>
                 <p>* Los campos con asterisco son obligatorios</p>
             </form>
-
+ 
         </main> <!-- end contacto -->
         <footer class="footer">
           <h5>@ Andrea Gutiérrez Muñoz - Desarrollo Aplicaciones Web - 2015</h5>
@@ -182,9 +192,8 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
-    <script src="../bower_components/jquery-validate/dist/jquery.validate.js"></script>
-
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery-validate/dist/jquery.validate.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

@@ -54,6 +54,45 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
   box-shadow:inset 1px 1px 5px 1px #808080;
   display: inline;
 }
+meter {
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+meter::-webkit-meter-bar {
+    background: #EEE;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+    border-radius: 3px;
+}
+
+meter::-webkit-meter-optimum-value {
+    background: #86CC00; /* Green */
+    border-radius: 3px;
+}
+
+meter::-webkit-meter-suboptimum-value {
+    background: #FFDB1A; /* Yellow */
+    border-radius: 3px;
+}
+
+meter::-webkit-meter-even-less-good-value {
+    background: #CC4600; /* Red */
+    border-radius: 3px;
+}
+
+ meter {
+  width: 25%;
+  height: 15px;
+  margin-top: -10px;
+  margin-left: 185px;
+  margin-bottom: 10px;
+  display: block;
+
+ /* box-shadow:inset 1px 1px 5px 1px #808080;*/
+/*  display: inline;*/
+}
 
 .contacto input.error {
   background-color: #F5A9A9;
@@ -87,7 +126,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
 }
 
 /* Botón de enviar */
-.contacto fieldset input[type="submit"] {
+.contacto fieldset input[type="submit"]  {
   width: 15%;
   max-width: 15%;
   height: auto;
@@ -118,7 +157,37 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
   color: #ccc;
   border: none;
 }
-
+.contacto fieldset input[type="reset"]  {
+  width: 15%;
+  max-width: 15%;
+  height: auto;
+  border: none;
+  border-top: 1px solid #9c9c9c;
+  background: #424242;
+  background: -webkit-gradient(linear, left top, left bottom, from(#424242), to(#575757));
+  background: -webkit-linear-gradient(top, #424242, #575757);
+  background: -moz-linear-gradient(top, #424242, #575757);
+  background: -ms-linear-gradient(top, #424242, #575757);
+  background: -o-linear-gradient(top, #424242, #575757);
+  padding: 2px 5px;
+  border-radius: 8px;
+  box-shadow: rgba(0,0,0,1) 0 1px 0;
+  text-shadow: rgba(0,0,0,.4) 0 1px 0;
+  color: #fff;
+  font-size: 13px;
+  font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+  text-decoration: none;
+  vertical-align: middle;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  float: right;
+}
+/* Botón de enviar al pasar el cursor */
+.contacto fieldset input[type="reset"]:hover {
+  background: #424242;
+  color: #ccc;
+  border: none;
+}
 .dem label {
   padding: 5px;
   width: 20px;
