@@ -31,7 +31,8 @@ $("#miFormu").validate({
         cp: {
             required: true,
             digits: true,
-            rangelength: [4, 5]
+            minlength: 4,
+            maxlength: 5
         },
         localidad: 'required',
         provincia: 'required',
@@ -64,7 +65,7 @@ $("#miFormu").validate({
         		iban: "Introduzca un IBAN correcto (Para España 24 caracteres y empezando por ES)."
       		},
       		cp: {
-      			rangelength: "Introduce un codigo de 4 o 5 digitos."
+      			minlength: "Introduce un codigo de 4 o 5 digitos."
       		},
       		remail: {
       			equalTo: "Introduce el mismo email."
@@ -94,10 +95,45 @@ $("#email").focusout(function() {
     $("#usuario").val(email);
 });
 
-// rellenar nombre con el nombre y los apellidos
+// rellenar nombre de facturacion con el nombre y los apellidos cada vez que se rellena el Nombre
+$("#nombre").focusout(function() {
+    var nomape=$("#nombre").val()+" "+$("#apellidos").val();
+    $("#nom_fact").val(nomape);
+});
+
+// rellenar nombre de facturacion con el nombre y los apellidos cada vez que se rellenan los Apellidos
 $("#apellidos").focusout(function() {
     var nomape=$("#nombre").val()+" "+$("#apellidos").val();
     $("#nom_fact").val(nomape);
 });
 
+// Si el Código Postal se compone de 4 dígitos, se agrega un 0 a la izquierda.
+$("#cp").focusout(function() {
+    var caracteres = $("#cp").val();
+        if (caracteres.length == 4)
+            $("#cp").val("0" + caracteres);
+});
 
+// Si el input:radio #dem1 (particular) esta marcado: 
+$("#dem1").change(function(evento) {
+    if ($("#dem1").is(':checked')) {
+        $("#etiqueta1").html('NIF');
+        $("#etiqueta2").html('Nombre');
+        var nomape=$("#nombre").val()+" "+$("#apellidos").val();
+        $("#nom_fact").val(nomape);
+        $("#nom_fact").attr('disabled', true);
+    }
+});
+// Si el input:radio #dem2 (empresa) esta marcado: 
+$("#dem2").change(function(evento) {
+    if ($("#dem2").is(':checked')) {
+        $("#etiqueta1").html('CIF');
+        $("#etiqueta2").html('Empresa');
+        $("#nom_fact").val('');
+        $("#nom_fact").attr('disabled', false);
+    }
+});
+
+$("#limpiar").click(function(){
+    $("#nom_fact").attr('disabled', true);
+});

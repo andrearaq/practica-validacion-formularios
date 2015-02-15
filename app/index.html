@@ -93,13 +93,13 @@
                     </div>
 
                     <div id="separar">
-                        <label for="nif_cif">NIF
+                        <label for="nif_cif" id="etiqueta1">NIF
                             <span classs="important">*</span>
                         </label>
                         <input type="text" id="nif_cif" name="nif_cif"/>
                     </div>  
                     <div>
-                        <label for="nom_fact">Nombre
+                        <label for="nom_fact" id="etiqueta2">Nombre
                             <span classs="important">*</span>
                         </label>
                         <input type="text" id="nom_fact" name="nom_fact" disabled/>
@@ -114,7 +114,7 @@
                         <label for="cp">CP
                             <span classs="important">*</span>
                         </label>
-                        <input type="digit" id="cp" name="cp"/>
+                        <input type="text" id="cp" name="cp"/>
                     </div> 
                     <div>
                         <label for="localidad">Localidad
@@ -177,7 +177,7 @@
                         <label for="rpassword">Repetir Contraseña</label>
                         <input type="password" id="rpassword" name ="rpassword"/><br/>
                     </div>
-                    <input type="reset"  onclick="window.location.reload()" value="Limpiar"/>
+                    <input type="reset"  onclick="window.location.reload()" value="Limpiar" id="limpiar"/>
                     <input type="submit" value="Enviar"/>
                 </fieldset>
                 <br/>
