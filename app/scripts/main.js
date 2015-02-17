@@ -77,7 +77,15 @@ $("#miFormu").validate({
             
         },
      	submitHandler: function() {
-            alert("¡Enviado!");
+            var precio = 0;
+            var usuario= $("#usuario").val();
+            if ($("#men").is(':checked'))
+                precio=50;
+            if ($("#trim").is(':checked'))
+                precio=140;
+            if ($("#anu").is(':checked'))
+                precio=550;
+            confirm("¡Se va a dar de alta al usuario "+usuario+" cuya cuota es de: "+precio+" !");
         }
     }
 });
@@ -112,6 +120,11 @@ $("#cp").focusout(function() {
     var caracteres = $("#cp").val();
         if (caracteres.length == 4)
             $("#cp").val("0" + caracteres);
+        var cod = caracteres.substring(0,2);
+        if (cod == "50") {
+            $("#localidad").val('Zaragoza');
+            $("#provincia").val('Zaragoza');
+        }
 });
 
 // Si el input:radio #dem1 (particular) esta marcado: 

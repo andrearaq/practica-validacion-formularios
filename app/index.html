@@ -33,7 +33,7 @@
 
         <main class="contacto">
 
-            <form  method="POST" id="miFormu" novalidate>
+            <form  method="post" action="" id="miFormu" novalidate>
 
                 <fieldset>
                     <h2>Información de Contacto</h2>
@@ -146,11 +146,11 @@
                         </label>
                         <div class="radioCheck">
                             <label>
-                                <input type="radio" name="pago" value="mensual" checked/>Mensual</label>
+                                <input type="radio" name="pago" value="mensual" id="men" checked/>Mensual</label>
                             <label>
-                                <input type="radio" name="pago" value="trimestral"/>Trimestral</label>
+                                <input type="radio" name="pago" value="trimestral" id="trim"/>Trimestral</label>
                             <label>
-                                <input type="radio" name="pago" value="anual"/>Anual</label>
+                                <input type="radio" name="pago" value="anual" id="anu" />Anual</label>
                         </div>
                     </div>
 
@@ -201,6 +201,7 @@
         <script src="scripts/main.js"></script>
         <script src="scripts/messages_es.js"></script>
         <script src="scripts/jquery.complexify.js"></script>
+         <script src="scripts/iban.js"></script>
         <!-- endbuild -->
 </body>
 </html>
