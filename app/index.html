@@ -68,6 +68,7 @@
                     <div>
                         <label>¿Cómo nos has conocido?</label>
                         <select name="conocido" id="conocido">
+                          <option value="0">Elige tu opción...</option>
                           <option value="pnc">Prefiero no contestar</option>
                           <option value="pub">Publicidad</option>
                           <option value="pds">Profesionales del sector</option>
@@ -146,11 +147,11 @@
                         </label>
                         <div class="radioCheck">
                             <label>
-                                <input type="radio" name="pago" value="mensual" id="men" checked/>Mensual</label>
+                                <input type="radio" name="pago" value="50" id="men" checked/>Mensual</label>
                             <label>
-                                <input type="radio" name="pago" value="trimestral" id="trim"/>Trimestral</label>
+                                <input type="radio" name="pago" value="140" id="trim"/>Trimestral</label>
                             <label>
-                                <input type="radio" name="pago" value="anual" id="anu" />Anual</label>
+                                <input type="radio" name="pago" value="550" id="anu" />Anual</label>
                         </div>
                     </div>
 
@@ -202,6 +203,7 @@
         <script src="scripts/messages_es.js"></script>
         <script src="scripts/jquery.complexify.js"></script>
          <script src="scripts/iban.js"></script>
+         <script src="scripts/chosen.jquery.min.js"></script>
         <!-- endbuild -->
 </body>
 </html>

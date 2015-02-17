@@ -17,14 +17,16 @@ $("#miFormu").validate({
         },
         email: {
             required: true,
-            minlength: 4
+            minlength: 4,
+            remote: '../php/validar_email.php'
         },
         remail: {
         	equalTo: email
         },
         title: "required",
         nif_cif: {
-            required: true
+            required: true,
+            remote: '..php/validar_nif.php'
         },
         nom_fact: "required",
         direccion: "required",
@@ -77,18 +79,20 @@ $("#miFormu").validate({
             
         },
      	submitHandler: function() {
-            var precio = 0;
             var usuario= $("#usuario").val();
-            if ($("#men").is(':checked'))
-                precio=50;
-            if ($("#trim").is(':checked'))
-                precio=140;
-            if ($("#anu").is(':checked'))
-                precio=550;
-            confirm("¡Se va a dar de alta al usuario "+usuario+" cuya cuota es de: "+precio+" !");
+            var precio=$("input[name='pago']:checked").val();
+            var resp=confirm("¡Se va a dar de alta al usuario "+usuario+" cuya cuota es de: "+precio+" !");
+            if (resp==1)
+                alert("Usuario "+usuario+" dado de alta.");
+            else 
+                alert("No se ha realizado el alta del usuario "+usuario+".");
+            window.location.reload();
         }
     }
 });
+
+// aplicar el plugin chosen al select de Como nos has conocido?
+$("#conocido").chosen({disable_search_threshold: 10});
 
 // comprobación de la complejidad del password
 $("#password").focusin(function () {
@@ -147,6 +151,7 @@ $("#dem2").change(function(evento) {
     }
 });
 
+//cuando se pulsa el botón Limpiar
 $("#limpiar").click(function(){
     $("#nom_fact").attr('disabled', true);
 });
