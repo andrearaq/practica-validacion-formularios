@@ -4,11 +4,16 @@ $('#miFormu').each (function(){
   this.reset();
 });
 
+// aplicar el plugin chosen al select de Como nos has conocido?
+$(".chosen-select").chosen({allow_single_deselect: true, disable_search_threshold: 5});
+//('#conocido').chosen();
+
 // validacion del formulario
-$("#miFormu").validate({
+$('#miFormu').validate({
+    focusCleanup: true,    //quita los errores al entrar en los campos de nuevo
     rules: {
-        nombre: "required",
-        apellidos: "required",
+        nombre: 'required',
+        apellidos: 'required',
         telefono: {
             required: true,
             digits: true,
@@ -17,19 +22,19 @@ $("#miFormu").validate({
         },
         email: {
             required: true,
-            minlength: 4,
-            remote: '../php/validar_email.php'
+            minlength: 4
+           // remote: '../php/validar_email.php'
         },
         remail: {
         	equalTo: email
         },
-        title: "required",
+        title: 'required',
         nif_cif: {
-            required: true,
-            remote: '..php/validar_nif.php'
+            required: true
+          //  remote: '..php/validar_nif.php'
         },
-        nom_fact: "required",
-        direccion: "required",
+        nom_fact: 'required',
+        direccion: 'required',
         cp: {
             required: true,
             digits: true,
@@ -41,7 +46,7 @@ $("#miFormu").validate({
         pais: 'required',
         iban: {
             required: true,
-            iban: true,
+            iban: 'iban',
             minlength: 24,
             maxlength: 24
         },
@@ -77,22 +82,24 @@ $("#miFormu").validate({
             },
             rpassword: "Introduce la misma contraseña."
             
-        },
-     	submitHandler: function() {
-            var usuario= $("#usuario").val();
-            var precio=$("input[name='pago']:checked").val();
-            var resp=confirm("¡Se va a dar de alta al usuario "+usuario+" cuya cuota es de: "+precio+" !");
-            if (resp==1)
-                alert("Usuario "+usuario+" dado de alta.");
-            else 
-                alert("No se ha realizado el alta del usuario "+usuario+".");
-            window.location.reload();
+        },  //fin messages
+    },   //fin rules
+ 	submitHandler: function() {
+        var usuario = $("#usuario").val();
+        var precio = $("input[name='pago']:checked").val();
+        var resp = confirm("¡Se va a dar de alta al usuario "+usuario+" cuya cuota es de: "+precio+"€ !");
+        if (resp) {
+            alert("<< Usuario "+usuario+" dado de alta. >>");
         }
+        else {
+            alert("<< No se ha realizado el alta del usuario "+usuario+". >>");
+        }
+        // se de o no de alta el usuario se limpia el formulario
+        window.location.reload();
     }
 });
 
-// aplicar el plugin chosen al select de Como nos has conocido?
-$("#conocido").chosen({disable_search_threshold: 10});
+
 
 // comprobación de la complejidad del password
 $("#password").focusin(function () {
@@ -125,7 +132,7 @@ $("#cp").focusout(function() {
         if (caracteres.length == 4)
             $("#cp").val("0" + caracteres);
         var cod = caracteres.substring(0,2);
-        if (cod == "50") {
+        if (cod === "50") {
             $("#localidad").val('Zaragoza');
             $("#provincia").val('Zaragoza');
         }

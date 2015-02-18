@@ -14,7 +14,7 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
-
+    <link rel="stylesheet" href="styles/chosen.min.css">
     <!-- endbuild -->
   </head>
   <body>
@@ -67,13 +67,13 @@
                     </div>  
                     <div>
                         <label>¿Cómo nos has conocido?</label>
-                        <select name="conocido" id="conocido">
-                          <option value="0">Elige tu opción...</option>
-                          <option value="pnc">Prefiero no contestar</option>
-                          <option value="pub">Publicidad</option>
-                          <option value="pds">Profesionales del sector</option>
-                          <option value="internet">Internet</option>
-                          <option value="ada">A través de un amigo o conocido</option>
+                        <select name="conocido" id="conocido" class="prueba chosen-select" data-placeholder="Elige tu opcion...">
+                          <option value=""></option>
+                          <option value="1">Prefiero no contestar</option>
+                          <option value="2">Publicidad</option>
+                          <option value="3">Profesionales del sector</option>
+                          <option value="4">Internet</option>
+                          <option value="5">A través de un amigo o conocido</option>
                         </select> 
                     </div>
                 </fieldset>
@@ -82,7 +82,7 @@
                     <h2>Datos de facturación</h2>
                     <div>
                         <label>Demandante
-                            <span classs="important">*</span>
+                            <span class="important">*</span>
                         </label>
                          <div class="radioCheck">
                             <label for="dem1">
@@ -203,7 +203,7 @@
         <script src="scripts/messages_es.js"></script>
         <script src="scripts/jquery.complexify.js"></script>
          <script src="scripts/iban.js"></script>
-         <script src="scripts/chosen.jquery.min.js"></script>
+         <script src="scripts/chosen.jquery.js"></script>
         <!-- endbuild -->
 </body>
 </html>
