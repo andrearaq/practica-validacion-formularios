@@ -5,7 +5,7 @@ $('#miFormu').each (function(){
 });
 
 // aplicar el plugin chosen al select de Como nos has conocido?
-$(".chosen-select").chosen({allow_single_deselect: true, disable_search_threshold: 5});
+//$(".chosen-select").chosen({allow_single_deselect: true, disable_search_threshold: 5});
 //('#conocido').chosen();
 
 // validacion del formulario
@@ -26,12 +26,27 @@ $('#miFormu').validate({
            // remote: '../php/validar_email.php'
         },
         remail: {
-        	equalTo: email
+        	equalTo: '#email'
         },
         title: 'required',
         nif_cif: {
-            required: true
-          //  remote: '..php/validar_nif.php'
+            required: true,
+            minlength: 9,
+            nifES:function(){
+                // Si el demandante es particular se comprueba formato nif.
+                if ($("#dem1").is(":checked")){
+                   $('#nif_cif').val().toUpperCase();
+                    return 'nifES';
+                }
+              },
+            cifES: function(){
+                // Si el demandante es empresa se comprueba formato cif.
+                if ($("#dem2").is(":checked")){
+                    $('#nif_cif').val().toUpperCase();
+                    return 'cifES';
+                }
+              }
+           //   remote: '..php/validar_nif.php'
         },
         nom_fact: 'required',
         direccion: 'required',
@@ -60,30 +75,26 @@ $('#miFormu').validate({
         },
         rpassword: {
         	equalTo: password
-        },
-        messages: {
-            nif_cif: {
-                remote: "Este NIF ya esta en uso."
-            },
-            email: {
-                remote: "Este correo ya esta en uso."
-            },
-            iban: {
-        		iban: "Introduzca un IBAN correcto (Para España 24 caracteres y empezando por ES)."
-      		},
-      		cp: {
-      			minlength: "Introduce un codigo de 4 o 5 digitos."
-      		},
-      		remail: {
-      			equalTo: "Introduce el mismo email."
-      		},
-            password: {
-                minlength: "Contraseña: mínimo 8 caracteres."
-            },
-            rpassword: "Introduce la misma contraseña."
-            
-        },  //fin messages
+        }
     },   //fin rules
+    messages: {
+        nif_cif: {
+            remote: "Este NIF ya está en uso."
+        },
+        email: {
+            remote: "Este correo ya está en uso."
+        },
+        iban: {
+    		iban: "Introduzca un IBAN correcto (Para España 24 caracteres y empezando por ES)."
+  		},
+  		cp: {
+  			minlength: "Introduce un codigo de 4 o 5 digitos."
+  		},
+  		remail: {
+  			equalTo: "Introduce el mismo email."
+  		},
+        rpassword: "Introduce la misma contraseña."
+    },  //fin messages
  	submitHandler: function() {
         var usuario = $("#usuario").val();
         var precio = $("input[name='pago']:checked").val();
@@ -129,8 +140,9 @@ $("#apellidos").focusout(function() {
 // Si el Código Postal se compone de 4 dígitos, se agrega un 0 a la izquierda.
 $("#cp").focusout(function() {
     var caracteres = $("#cp").val();
-        if (caracteres.length == 4)
+        if (caracteres.length == 4) {
             $("#cp").val("0" + caracteres);
+        }
         var cod = caracteres.substring(0,2);
         if (cod === "50") {
             $("#localidad").val('Zaragoza');
@@ -157,6 +169,56 @@ $("#dem2").change(function(evento) {
         $("#nom_fact").attr('disabled', false);
     }
 });
+
+// Metodo para verificar nif 
+jQuery.validator.addMethod("nifES", function(value, element) {
+    if(/^([0-9]{8})*[a-zA-Z]+$/.test(value)){
+        var dni = value.substr(0,value.length-1);
+        var l = value.charAt(value.length-1);
+        var pos = dni % 23;
+        var letra='TRWAGMYFPDXBNJZSQVHLCKET';
+        letra=letra.toUpperCase();
+        letra=letra.substring(pos,pos+1);
+        if (letra==l.toUpperCase()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+});
+
+// Metodo para verificar cif
+jQuery.validator.addMethod( "cifES", function ( value, element ) {
+     var sum,  num = [],  controlDigit;
+     value = value.toUpperCase();
+      
+     // Basic format test
+     if ( !value.match( '((^[A-Z]{1}[0-9]{7}[A-Z0-9]{1}$|^[T]{1}[A-Z0-9]{8}$)|^[0-9]{8}[A-Z]{1}$)' ) ) {
+      return false;
+     }
+      
+     for ( var i = 0; i < 9; i++ ) {
+      num[ i ] = parseInt( value.charAt( i ), 10 );
+     }
+    // chequear codigo CIF 
+     sum = num[ 2 ] + num[ 4 ] + num[ 6 ];
+     for ( var count = 1; count < 8; count += 2 ) {
+          var tmp = ( 2 * num[ count ] ).toString(),
+          secondDigit = tmp.charAt( 1 );
+          sum += parseInt( tmp.charAt( 0 ), 10 ) + ( secondDigit === '' ? 0 : parseInt( secondDigit, 10 ) );
+     }
+      
+     // CIF test
+     if ( /^[ABCDEFGHJNPQRSUVW]{1}/.test( value ) ) {
+      sum += '';
+      controlDigit = 10 - parseInt( sum.charAt( sum.length - 1 ), 10 );
+      value += controlDigit;
+      return ( num[ 8 ].toString() === String.fromCharCode( 64 + controlDigit ) || num[ 8 ].toString() === value.charAt( value.length - 1 ) );
+     }
+     return false;
+});
+
 
 //cuando se pulsa el botón Limpiar
 $("#limpiar").click(function(){

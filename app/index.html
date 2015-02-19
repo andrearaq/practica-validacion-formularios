@@ -14,7 +14,6 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/chosen.min.css">
     <!-- endbuild -->
   </head>
   <body>
@@ -33,31 +32,31 @@
 
         <main class="contacto">
 
-            <form  method="post" action="" id="miFormu" novalidate>
+            <form  method="post" action="registro.php" id="miFormu" novalidate>
 
                 <fieldset>
                     <h2>Información de Contacto</h2>
                     <div>
                         <label for="nombre">Nombre
-                            <span classs="important">*</span>
+                            <span class="important">*</span>
                         </label>
                         <input type="text" id="nombre" name="nombre"/>
                     </div>
                     <div>
                         <label for="apellidos">Apellidos
-                            <span classs="important">*</span>
+                            <span class="important">*</span>
                         </label>
                         <input type="text" id="apellidos" name="apellidos"/>
                     </div>
                     <div>
                         <label for="telefono">Teléfono
-                            <span classs="important">*</span>
+                            <span class="important">*</span>
                         </label>
                         <input type="tel" id="telefono" name="telefono"/>
                     </div>
                     <div>
                         <label for="email">E-mail
-                            <span classs="important">*</span>
+                            <span class="important">*</span>
                         </label>
                         <input type="email" id="email" name="email"/>
                     </div>
@@ -67,8 +66,7 @@
                     </div>  
                     <div>
                         <label>¿Cómo nos has conocido?</label>
-                        <select name="conocido" id="conocido" class="chosen-select" data-placeholder="Elige tu opcion...">
-                          <option value=""></option>
+                        <select name="conocido" id="conocido">
                           <option value="1">Prefiero no contestar</option>
                           <option value="2">Publicidad</option>
                           <option value="3">Profesionales del sector</option>
@@ -95,55 +93,55 @@
 
                     <div id="separar">
                         <label for="nif_cif" id="etiqueta1">NIF
-                            <span classs="important">*</span>
+                            <span class="important">*</span>
                         </label>
                         <input type="text" id="nif_cif" name="nif_cif"/>
                     </div>  
                     <div>
                         <label for="nom_fact" id="etiqueta2">Nombre
-                            <span classs="important">*</span>
+                            <span class="important">*</span>
                         </label>
                         <input type="text" id="nom_fact" name="nom_fact" disabled/>
                     </div> 
                     <div>
                         <label for="direccion">Dirección
-                            <span classs="important">*</span>
+                            <span class="important">*</span>
                         </label>
                         <input type="text" id="direccion" name="direccion"/>
                     </div> 
                     <div>
                         <label for="cp">CP
-                            <span classs="important">*</span>
+                            <span class="important">*</span>
                         </label>
                         <input type="text" id="cp" name="cp"/>
                     </div> 
                     <div>
                         <label for="localidad">Localidad
-                            <span classs="important">*</span>
+                            <span class="important">*</span>
                         </label>
                         <input type="text" id="localidad" name="localidad"/>
                     </div> 
                     <div>
                         <label for="provincia">Provincia
-                            <span classs="important">*</span>
+                            <span class="important">*</span>
                         </label>
                         <input type="text" id="provincia" name="provincia"/>
                     </div> 
                     <div>
                         <label for="pais">País
-                            <span classs="important">*</span>
+                            <span class="important">*</span>
                         </label>
                         <input type="text" id="pais" name="pais"/>
                     </div> 
                     <div>
                         <label for="iban">Código IBAN
-                            <span classs="important">*</span>
+                            <span class="important">*</span>
                         </label>
                         <input type="digit" id="iban" name="iban"/>
                     </div>  
                     <div>
                         <label for="pago">Forma de pago
-                             <span classs="important">*</span>
+                             <span class="important">*</span>
                         </label>
                         <div class="radioCheck">
                             <label>
@@ -161,12 +159,12 @@
                     <h2>Datos de acceso</h2>
                     <div>
                         <label for="usuario">Usuario
-                            <span classs="important">*</span></label>
+                            <span class="important">*</span></label>
                         <input type="text" id="usuario" name="usuario" disabled/><br/>
                     </div>
                     <div>
                         <label for="password">Contraseña
-                            <span classs="important">*</span></label>
+                            <span class="important">*</span></label>
                         <input type="password" id="password" name="password"/><br/>
                     </div>
                     <div>
