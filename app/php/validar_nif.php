@@ -5,7 +5,7 @@
     @$userv = new mysqli("localhost", "magutierrez_adm", "admindaw2015", "magutierrez_fut");
    
     //guardamos nif enviado desde el formulario
-    $nif=trim(strtolower($_REQUEST['nif_cif']));
+    $nif=trim(strtoupper($_REQUEST['nif_cif']));
 
     $errorbd = $userv -> connect_errno;
     // si la conexión con la base de datos NO da error
