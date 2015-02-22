@@ -13,13 +13,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
 }
 
 .wrapper {
-  min-width: 725px;
+ /*min-width: 725px;*/
+  min-width: 320px;
   max-width: 725px;
   margin: 0 auto;
-/*  background-color: white;*/
 }
-/* Header
------------------------------------------------------------------------------*/
+/* Header*/
 .header {
   height: 50px;
 }
@@ -54,45 +53,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
   box-shadow:inset 1px 1px 5px 1px #808080;
   display: inline;
 }
-meter {
-    /* Reset the default appearance */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
-meter::-webkit-meter-bar {
-    background: #EEE;
-    box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
-    border-radius: 3px;
-}
-
-meter::-webkit-meter-optimum-value {
-    background: #86CC00; /* Green */
-    border-radius: 3px;
-}
-
-meter::-webkit-meter-suboptimum-value {
-    background: #FFDB1A; /* Yellow */
-    border-radius: 3px;
-}
-
-meter::-webkit-meter-even-less-good-value {
-    background: #CC4600; /* Red */
-    border-radius: 3px;
-}
-
- meter {
-  width: 25%;
-  height: 15px;
-  margin-top: -10px;
-  margin-left: 185px;
-  margin-bottom: 10px;
-  display: block;
-
- /* box-shadow:inset 1px 1px 5px 1px #808080;*/
-/*  display: inline;*/
-}
 
 .contacto input.error {
   background-color: #F5A9A9;
@@ -121,7 +81,7 @@ meter::-webkit-meter-even-less-good-value {
 }
 
 .important{
-    color:red;
+    color:#424242;
     font-weight:bold;
 }
 
@@ -221,4 +181,51 @@ meter::-webkit-meter-even-less-good-value {
 }
 #separar {
   clear: both;
+}
+#provincia {
+  width: 66%;
+  max-width: 70%;
+  height: 28px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  box-shadow:inset 1px 1px 5px 1px #808080;
+  display: inline;
+}
+
+/* elemento meter para la complejidad de la contraseña */
+meter {
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+meter::-webkit-meter-bar {
+    background: #EEE;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+    border-radius: 3px;
+}
+
+meter::-webkit-meter-optimum-value {
+    background: #86CC00; /* Green */
+    border-radius: 3px;
+}
+
+meter::-webkit-meter-suboptimum-value {
+    background: #FFDB1A; /* Yellow */
+    border-radius: 3px;
+}
+
+meter::-webkit-meter-even-less-good-value {
+    background: #CC4600; /* Red */
+    border-radius: 3px;
+}
+
+ meter {
+  width: 25%;
+  height: 15px;
+  margin-top: -10px;
+  margin-left: 185px;
+  margin-bottom: 10px;
+  display: block;
 }

@@ -8,6 +8,9 @@ $('#miFormu').each (function(){
 //$(".chosen-select").chosen({allow_single_deselect: true, disable_search_threshold: 5});
 //('#conocido').chosen();
 
+// cargamos las provincias
+$('#provincia').load("php/provincias.php");
+
 // validacion del formulario
 $('#miFormu').validate({
     focusCleanup: true,    //quita los errores al entrar en los campos de nuevo
@@ -110,8 +113,6 @@ $('#miFormu').validate({
     }
 });
 
-
-
 // comprobación de la complejidad del password
 $("#password").focusin(function () {
     $("#password").complexify({}, function (valid, complexity) {
@@ -143,11 +144,19 @@ $("#cp").focusout(function() {
         if (caracteres.length == 4) {
             $("#cp").val("0" + caracteres);
         }
-        var cod = caracteres.substring(0,2);
-        if (cod === "50") {
+        var cod = parseInt(caracteres.substring(0,2));
+        if (cod === 50) {
             $("#localidad").val('Zaragoza');
-            $("#provincia").val('Zaragoza');
+        } else {
+            $("#localidad").val('');
         }
+        $("#provincia option[value="+cod+"]").attr("selected",true);
+        if ( cod>0 && cod<53) {
+            $("#pais").val('España');
+        } else {
+            $("#pais").val('');
+        }
+
 });
 
 // Si el input:radio #dem1 (particular) esta marcado: 
@@ -190,56 +199,23 @@ jQuery.validator.addMethod("nifES", function(value, element) {
 
 // Metodo para verificar cif
 jQuery.validator.addMethod( "cifES", function ( value, element ) {
-   /*  var sum,  num = [],  controlDigit;
-     value = value.toUpperCase();
-      
-     // Basic format test
-     if ( !value.match( '((^[A-Z]{1}[0-9]{7}[A-Z0-9]{1}$|^[T]{1}[A-Z0-9]{8}$)|^[0-9]{8}[A-Z]{1}$)' ) ) {
-      return false;
-     }
-      
-     for ( var i = 0; i < 9; i++ ) {
-      num[ i ] = parseInt( value.charAt( i ), 10 );
-     }
-    // chequear codigo CIF 
-     sum = num[ 2 ] + num[ 4 ] + num[ 6 ];
-     for ( var count = 1; count < 8; count += 2 ) {
-          var tmp = ( 2 * num[ count ] ).toString(),
-          secondDigit = tmp.charAt( 1 );
-          sum += parseInt( tmp.charAt( 0 ), 10 ) + ( secondDigit === '' ? 0 : parseInt( secondDigit, 10 ) );
-     }
-      
-     // CIF test
-     if ( /^[ABCDEFGHJNPQRSUVW]{1}/.test( value ) ) {
-      sum += '';
-      controlDigit = 10 - parseInt( sum.charAt( sum.length - 1 ), 10 );
-      value += controlDigit;
-      return ( num[ 8 ].toString() === String.fromCharCode( 64 + controlDigit ) || num[ 8 ].toString() === value.charAt( value.length - 1 ) );
-     }
-     return false;*/
+    "use strict";
 
-     "use strict";
-
-    var num = [],
-        controlDigit, sum, i, count, tmp, secondDigit;
-
+    var num = [], controlDigit, sum, i, count, tmp, secondDigit;
     value = value.toUpperCase();
 
     // Quick format test
     if ( !value.match( "((^[A-Z]{1}[0-9]{7}[A-Z0-9]{1}$|^[T]{1}[A-Z0-9]{8}$)|^[0-9]{8}[A-Z]{1}$)" ) ) {
         return false;
     }
-
     for ( i = 0; i < 9; i++ ) {
         num[ i ] = parseInt( value.charAt( i ), 10 );
     }
-
     // Algorithm for checking CIF codes
     sum = num[ 2 ] + num[ 4 ] + num[ 6 ];
     for ( count = 1; count < 8; count += 2 ) {
         tmp = ( 2 * num[ count ] ).toString();
         secondDigit = tmp.charAt( 1 );
-
         sum += parseInt( tmp.charAt( 0 ), 10 ) + ( secondDigit === "" ? 0 : parseInt( secondDigit, 10 ) );
     }
 
@@ -270,7 +246,6 @@ jQuery.validator.addMethod( "cifES", function ( value, element ) {
         value += controlDigit;
         return ( num[ 8 ].toString() === String.fromCharCode( 64 + controlDigit ) || num[ 8 ].toString() === value.charAt( value.length - 1 ) );
     }
-
     return false;
 });
 
