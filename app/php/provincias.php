@@ -1,8 +1,8 @@
 <?php  
 // Cargar provincias
+    header("Access-Control-Allow-Origin: *");  // permite usar CORS
     //Cadena de conexión seleccionando bd:
     @$userv = new mysqli("localhost", "magutierrez_adm", "admindaw2015", "magutierrez_fut");
-   
     $errorbd = $userv -> connect_errno;
     // si la conexión con la base de datos NO da error
     if ($errorbd==null) {  
@@ -14,15 +14,15 @@
         $sql = "SELECT id_provincia, provincia FROM provincias";
         $resultado = $userv->query($sql);
         // obtenemos los datos 
-        $data="<option value='0'>Elige provincia...</option>";
+        $datos="<option value='0'>Elige provincia...</option>";
         while ($row = $resultado->fetch_assoc()) {
-            $data .="<option value='".$row['id_provincia']."'>".$row['provincia']."</option>";
+            $datos .="<option value='".$row['id_provincia']."'>".$row['provincia']."</option>";
         } 
     }
     else {     // si la conexión da error
         print "Imposible conectar con la bbdd de provincias";
     }  
    $userv->close();
+   echo $datos;
    unset($userv);
-   echo $data;
 ?>

@@ -1,6 +1,7 @@
 <?php  
 // Validacion del email
     
+    header("Access-Control-Allow-Origin: *");  // permite usar CORS
     //Cadena de conexión seleccionando bd:
     @$userv = new mysqli("localhost", "magutierrez_adm", "admindaw2015", "magutierrez_fut");
    
@@ -22,7 +23,7 @@
         $salida='true';
         while ($row = $resultado->fetch_assoc()) {
             if ( $row['email']==$email){
-                $salida='"Usuario ya registrado."';
+                $salida='"Ese Usuario ya está registrado."';
             }
         } 
     }

@@ -1,6 +1,7 @@
 <?php  
 // Validacion del nif
     
+    header("Access-Control-Allow-Origin: *");  // permite usar CORS
     //Cadena de conexión seleccionando bd:
     @$userv = new mysqli("localhost", "magutierrez_adm", "admindaw2015", "magutierrez_fut");
    
@@ -22,7 +23,7 @@
         $salida='true';
         while ($row = $resultado->fetch_assoc()) {
             if ( $row['nif_cif']==$nif){
-                $salida='"Dni ya registrado."';
+                $salida='"Ese NIF ya está registrado."';
             }
         } 
     }

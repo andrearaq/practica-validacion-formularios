@@ -81,12 +81,6 @@ $('#miFormu').validate({
         }
     },   //fin rules
     messages: {
-        nif_cif: {
-            remote: "Este NIF ya está en uso."
-        },
-        email: {
-            remote: "Este correo ya está en uso."
-        },
         iban: {
     		iban: "Introduzca un IBAN correcto (Para España 24 caracteres y empezando por ES)."
   		},
