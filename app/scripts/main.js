@@ -8,7 +8,7 @@ $('#miFormu').each (function(){
 //$(".chosen-select").chosen({allow_single_deselect: true, disable_search_threshold: 5});
 //('#conocido').chosen();
 
-// cargamos las provincias
+// cargamos las provincias usando ajax
 $('#provincia').load("php/provincias.php");
 
 // validacion del formulario
@@ -38,11 +38,11 @@ $('#miFormu').validate({
             remote: 'php/validar_nif.php',
             nifES:function(){
                 // Si el demandante es particular se comprueba formato nif.
-                if ($("#dem1").is(":checked")){
+               if ($("#dem1").is(":checked")){
                    $('#nif_cif').val().toUpperCase();
-                    return 'nifES';
-                }
-              },
+                   return 'nifES';
+               }
+            },
             cifES: function(){
                 // Si el demandante es empresa se comprueba formato cif.
                 if ($("#dem2").is(":checked")){
@@ -138,19 +138,23 @@ $("#cp").focusout(function() {
         if (caracteres.length == 4) {
             $("#cp").val("0" + caracteres);
         }
-        var cod = parseInt(caracteres.substring(0,2));
-        if (cod === 50) {
-            $("#localidad").val('Zaragoza');
-        } else {
-            $("#localidad").val('');
-        }
+        var cod = parseInt(caracteres.substring(0,2));  // obtengo el codigo de la provincia segun el cp introducido
+
+       // se rellena la provincia con el nombre segun los dos primeros digitos del codigo postal
         $("#provincia option[value="+cod+"]").attr("selected",true);
+
+    // se rellena también la localidad con el nombre de la provincia y se permite luego modificarla
+    // sea o no Zaragoza
+        $("#localidad").val($("#provincia option:selected").html());
+
+    // si el codigo está entre 1 y 53 el país es España en caso contrario se introducirá
         if ( cod>0 && cod<53) {
             $("#pais").val('España');
         } else {
             $("#pais").val('');
+            $("#localidad").val('');
+            $("#provincia option[value=0]").attr("selected",true);
         }
-
 });
 
 // Si el input:radio #dem1 (particular) esta marcado: 
