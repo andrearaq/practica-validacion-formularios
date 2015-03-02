@@ -29,7 +29,7 @@ $('#miFormu').validate({
             remote: 'php/validar_email.php'
         },
         remail: {
-        	equalTo: '#email'
+            equalTo: '#email'
         },
         title: 'required',
         nif_cif: {
@@ -55,16 +55,16 @@ $('#miFormu').validate({
         direccion: 'required',
         cp: {
             required: true,
-            digits: true,
             minlength: 4,
-            maxlength: 5
+            maxlength: 5,
+            digits: true
         },
         localidad: 'required',
         provincia: 'required',
         pais: 'required',
         iban: {
             required: true,
-            iban: 'iban',
+            iban: true,
             minlength: 24,
             maxlength: 24
         },
@@ -77,22 +77,23 @@ $('#miFormu').validate({
             minlength: 8
         },
         rpassword: {
-        	equalTo: password
+            equalTo: password
         }
     },   //fin rules
     messages: {
         iban: {
-    		iban: "Introduzca un IBAN correcto (Para España 24 caracteres y empezando por ES)."
-  		},
-  		cp: {
-  			minlength: "Introduce un codigo de 4 o 5 digitos."
-  		},
-  		remail: {
-  			equalTo: "Introduce el mismo email."
-  		},
+            iban: "Introduzca un IBAN correcto (Para España 24 caracteres empezando por ES)."
+        },
+        cp: {
+            maxlength: "Introduce un codigo de 4 o 5 digitos.",
+            digits: "El codigo postal deben ser digitos."
+        },
+        remail: {
+            equalTo: "Introduce el mismo email."
+        },
         rpassword: "Introduce la misma contraseña."
     },  //fin messages
- 	submitHandler: function() {
+    submitHandler: function() {
         var usuario = $("#usuario").val();
         var precio = $("input[name='pago']:checked").val();
         var resp = confirm("¡Se va a dar de alta al usuario "+usuario+" cuya cuota es de: "+precio+"€ !");
@@ -133,27 +134,27 @@ $("#apellidos").focusout(function() {
 });
 
 // Si el Código Postal se compone de 4 dígitos, se agrega un 0 a la izquierda.
-$("#cp").focusout(function() {
+$("#cp").change(function() {
     var caracteres = $("#cp").val();
         if (caracteres.length == 4) {
             $("#cp").val("0" + caracteres);
         }
-        var cod = parseInt(caracteres.substring(0,2));  // obtengo el codigo de la provincia segun el cp introducido
+        var ct = $("#cp").val();
+        var cod = parseInt(ct.substring(0,2));  // obtengo el codigo de la provincia segun el cp introducido
 
-       // se rellena la provincia con el nombre segun los dos primeros digitos del codigo postal
-        $("#provincia option[value="+cod+"]").attr("selected",true);
-
-    // se rellena también la localidad con el nombre de la provincia y se permite luego modificarla
-    // sea o no Zaragoza
-        $("#localidad").val($("#provincia option:selected").html());
-
-    // si el codigo está entre 1 y 53 el país es España en caso contrario se introducirá
+    // si el codigo está entre 1 y 53 se rellenan los campos localidad, provincia y pais
         if ( cod>0 && cod<53) {
+            // se rellena la provincia con el nombre segun los dos primeros digitos del codigo postal
+            $("#provincia option[value="+cod+"]").attr("selected",true);
+            // se rellena también la localidad con el nombre de la provincia y se permite luego modificarla
+            // sea o no Zaragoza
+            $("#localidad").val($("#provincia option:selected").html());
             $("#pais").val('España');
         } else {
             $("#pais").val('');
             $("#localidad").val('');
-            $("#provincia option[value=0]").attr("selected",true);
+            cod=0;
+            ("#provincia option[value="+cod+"]").attr("selected",true);
         }
 });
 
