@@ -1,8 +1,0 @@
-{
-  "name": "practica-validacion-formularios",
-  "private": true,
-  "dependencies": {
-    "jquery-validate": "~1.13.1",
-    "chosen": "~1.3.0"
-  }
-}

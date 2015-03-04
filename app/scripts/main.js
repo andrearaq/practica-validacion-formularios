@@ -66,7 +66,7 @@ $('#miFormu').validate({
             required: true,
             iban: true,
             minlength: 24,
-            maxlength: 24
+            maxlength: 28
         },
         usuario: {
             required: true,
